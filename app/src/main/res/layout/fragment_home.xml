@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mileage"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_200"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <EditText
+        android:id="@+id/distance"
+        android:layout_width="318dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/total_number_of_kilometers"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <EditText
+        android:id="@+id/fuel"
+        android:layout_width="312dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/total_amount_of_fuel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distance" />
+
+    <Button
+        android:id="@+id/buttonCompute"
+        android:layout_width="202dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:text="Compute"
+        app:layout_constraintEnd_toEndOf="@+id/fuel"
+        app:layout_constraintStart_toStartOf="@+id/fuel"
+        app:layout_constraintTop_toBottomOf="@+id/fuel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

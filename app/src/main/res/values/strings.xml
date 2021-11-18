@@ -2,4 +2,6 @@
     <string name="app_name">MileageChecker</string>
     <string name="total_number_of_kilometers">Total Number of Kilometers</string>
     <string name="total_amount_of_fuel">Total Amount of Fuel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
