@@ -9,14 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MileageChecker" >
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main" />
-        <activity
-            android:name=".BottomNavigation"
-            android:exported="false"
-            android:label="@string/title_activity_bottom_navigation" />
+
         <activity
             android:name=".view.activities.SplashActivity"
             android:exported="true"
@@ -37,10 +30,8 @@
             android:name=".view.activities.AddCar"
             android:exported="false"
             android:label="Add Car"
+            android:configChanges="orientation"
             android:theme="@style/Theme.MileageChecker.NoActionBar" />
-        <activity
-            android:name=".view.activities.MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
