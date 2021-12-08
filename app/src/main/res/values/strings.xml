@@ -16,4 +16,7 @@
     <string name="show">Show</string>
     <string name="notifications">Notifications</string>
     <string name="messages">Messages</string>
+    <string name="new_car">new car</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

@@ -1,10 +1,7 @@
-package com.nicholas.mileagechecker
+package com.nicholas.mileagechecker.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View.inflate
-import androidx.core.graphics.drawable.DrawableCompat.inflate
 import com.nicholas.mileagechecker.databinding.ActivityAddCarBinding
 
 class AddCar : AppCompatActivity() {

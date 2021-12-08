@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCar">
+    tools:context=".view.activities.AddCar">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -121,7 +121,7 @@
                 <ImageView
                     android:id="@+id/imageBackground"
                     android:layout_width="match_parent"
-                    android:layout_height="295dp"
+                    android:layout_height="250dp"
                     android:background="@color/colorBackground"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/audi" />

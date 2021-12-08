@@ -1,4 +1,4 @@
-package com.nicholas.mileagechecker
+package com.nicholas.mileagechecker.view.activities
 
 import android.content.Intent
 import android.os.Build
@@ -10,6 +10,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import com.nicholas.mileagechecker.R
 import com.nicholas.mileagechecker.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
@@ -39,20 +40,20 @@ class SplashActivity : AppCompatActivity() {
         //set animation listener
         splashAnimation.setAnimationListener(object : Animation.AnimationListener{
             override fun onAnimationStart(animation: Animation?) {
-                TODO("Not yet implemented")
+
             }
 
             override fun onAnimationEnd(animation: Animation?) {
                 //we will use the handler class before we move to the next activity-handler class gives an option
                 // where we can handle things with delay
                 Handler(Looper.getMainLooper()).postDelayed({
-                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                    startActivity(Intent(this@SplashActivity, NavigationActivity::class.java))
                     finish()
                 }, 1000)
             }
 
             override fun onAnimationRepeat(animation: Animation?) {
-                TODO("Not yet implemented")
+
             }
 
         })

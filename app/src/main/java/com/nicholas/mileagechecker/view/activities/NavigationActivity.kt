@@ -1,4 +1,4 @@
-package com.nicholas.mileagechecker
+package com.nicholas.mileagechecker.view.activities
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.nicholas.mileagechecker.R
 import com.nicholas.mileagechecker.databinding.ActivityNavigationBinding
 
 class NavigationActivity : AppCompatActivity() {
@@ -26,7 +27,7 @@ class NavigationActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.homeFrag, R.id.carsFrag, R.id.notificationsFrag, R.id.communicationFrag
+                R.id.navigation_home, R.id.navigation_show, R.id.navigation_notifications
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

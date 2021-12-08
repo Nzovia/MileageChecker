@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeFrag"
+        android:id="@+id/navigation_home"
         android:title="@string/home"
         android:icon="@drawable/ic_home"
         />
 
     <item
-        android:id="@+id/carsFrag"
+        android:id="@+id/navigation_show"
         android:title="@string/show"
         android:icon="@drawable/ic_car"/>
     <item
-        android:id="@+id/notificationsFrag"
+        android:id="@+id/navigation_notifications"
         android:title="@string/notifications"
         android:icon="@drawable/ic_notifications"/>
-    <item
-        android:id="@+id/communicationFrag"
-        android:title="@string/messages"
-        android:icon="@drawable/ic_message"/>
+<!--    <item-->
+<!--        android:id="@+id/communicationFrag"-->
+<!--        android:title="@string/messages"-->
+<!--        android:icon="@drawable/ic_message"/>-->
 
 </menu>

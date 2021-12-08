@@ -1,4 +1,4 @@
-package com.nicholas.mileagechecker.ui.dashboard
+package com.nicholas.mileagechecker.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

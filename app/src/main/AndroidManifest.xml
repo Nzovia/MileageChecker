@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nicholas.mileagechecker">
+    package="com.nicholas.mileagechecker" >
 
     <application
         android:allowBackup="true"
@@ -8,30 +8,39 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MileageChecker">
+        android:theme="@style/Theme.MileageChecker" >
         <activity
-            android:name=".SplashActivity"
-            android:exported="true" >
-            <!--setting style for a single activity-->
-            android:theme="@style/Theme.MileageChecker.NoActionBar"
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main" />
+        <activity
+            android:name=".BottomNavigation"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_navigation" />
+        <activity
+            android:name=".view.activities.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MileageChecker.NoActionBar" >
+
+            <!-- setting style for a single activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
-            android:name=".NavigationActivity"
+            android:name=".view.activities.NavigationActivity"
             android:exported="false"
             android:label="@string/title_activity_navigation" />
         <activity
-            android:name=".AddCar"
-            android:exported="false" />
+            android:name=".view.activities.AddCar"
+            android:exported="false"
+            android:label="Add Car"
+            android:theme="@style/Theme.MileageChecker.NoActionBar" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false"/>
-
+            android:name=".view.activities.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

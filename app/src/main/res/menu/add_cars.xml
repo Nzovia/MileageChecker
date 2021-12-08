@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/add_new_car"
+        android:title="@string/new_car"
+        android:icon="@drawable/ic_add_car_item"
+        app:showAsAction="always"
+        />
+    <!--        to set the icon always feasible-->
+</menu>

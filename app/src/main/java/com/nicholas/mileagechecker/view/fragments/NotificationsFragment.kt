@@ -1,4 +1,4 @@
-package com.nicholas.mileagechecker.ui.notifications
+package com.nicholas.mileagechecker.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.nicholas.mileagechecker.R
 import com.nicholas.mileagechecker.databinding.FragmentNotificationsBinding
+import com.nicholas.mileagechecker.viewModel.NotificationsViewModel
 
 class NotificationsFragment : Fragment() {
 

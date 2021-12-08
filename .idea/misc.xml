@@ -13,8 +13,11 @@
         <entry key="app/src/main/res/layout/fragment_messages.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/item_car.xml" value="0.18115942028985507" />
+        <entry key="app/src/main/res/menu/add_cars.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/menu/bottomenu.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.209375" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.19375" />
       </map>
     </option>
   </component>

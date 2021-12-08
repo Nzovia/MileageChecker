@@ -3,15 +3,15 @@
     android:fillAfter="true"
     >
     <translate
-        android:duration ="2000"
-        android:fromXDelta ="-0%p"
+        android:duration ="5000"
+        android:fromXDelta ="0%p"
         android:fromYDelta ="0%p"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:toXDelta="100%p"
         android:toYDelta="0%p"
         />
     <alpha
-        android:duration = "20000"
+        android:duration = "2000"
         android:fromAlpha="0.0"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:toAlpha="1.0"

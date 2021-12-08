@@ -1,4 +1,4 @@
-package com.nicholas.mileagechecker
+package com.nicholas.mileagechecker.view.activities
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,21 +6,30 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.nicholas.mileagechecker.R
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     //create three arrays for our items
-    private var images = intArrayOf(R.drawable.audi,R.drawable.audi,R.drawable.audi,R.drawable.audi, R.drawable.audi, R.drawable.audi,
-        R.drawable.audi,R.drawable.audi )
+    private var images = intArrayOf(
+        R.drawable.audi,
+        R.drawable.audi,
+        R.drawable.audi,
+        R.drawable.audi,
+        R.drawable.audi,
+        R.drawable.audi,
+        R.drawable.audi,
+        R.drawable.audi
+    )
     private var models = arrayOf("Audi A7", "Audi A7", "Audi A7", "Audi A7", "Audi A7", "Audi A7", "Audi A7", "Audi A7")
     private var prices = arrayOf("$80,250","$80,250","$80,250","$80,250","$80,250","$80,250","$80,250","$80,250")
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //inflating the layout of the cardItem
         var view = LayoutInflater.from(parent.context).inflate(R.layout.item_car, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //the method or the function helps in populating data into the cardView
         holder.itemModel.text = models[position]
         holder.itemPrice.text = prices[position]

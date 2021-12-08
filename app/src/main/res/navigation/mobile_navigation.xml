@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.nicholas.mileagechecker.ui.home.HomeFragment"
+        android:name="com.nicholas.mileagechecker.view.fragments.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_show"
-        android:name="com.nicholas.mileagechecker.ui.dashboard.DashboardFragment"
+        android:name="com.nicholas.mileagechecker.view.fragments.DashboardFragment"
         android:label="Cars"
-        tools:layout="@layout/fragment_cars" />
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.nicholas.mileagechecker.ui.notifications.NotificationsFragment"
+        android:name="com.nicholas.mileagechecker.view.fragments.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/navigation_messages"
-        android:name="com.nicholas.mileagechecker.ui.messages.MessagesFragment"
-        android:label="title_messages"
-        tools:layout="@layout/fragment_messages" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_messages"-->
+<!--        android:name="com.nicholas.mileagechecker.view.fragments.MessagesFragment"-->
+<!--        android:label="title_messages"-->
+<!--        tools:layout="@layout/fragment_messages" />-->
 </navigation>
