@@ -19,4 +19,7 @@
     <string name="new_car">new car</string>
     <string name="title_activity_bottom_navigation">BottomNavigation</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="select_source">Select Source</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 </resources>

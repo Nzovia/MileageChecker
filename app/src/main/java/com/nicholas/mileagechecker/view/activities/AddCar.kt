@@ -45,4 +45,7 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
             }
         }
     }
+    private fun showCustomDialog(){
+
+    }
 }
