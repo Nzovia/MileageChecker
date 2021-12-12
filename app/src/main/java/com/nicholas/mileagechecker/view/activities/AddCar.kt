@@ -5,9 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.karumi.dexter.Dexter
 import com.nicholas.mileagechecker.R
 import com.nicholas.mileagechecker.databinding.ActivityAddCarBinding
 import com.nicholas.mileagechecker.databinding.CustomphotodialogBinding
+import android.Manifest
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 
 class AddCar : AppCompatActivity() , View.OnClickListener{
 //    Not when you use viewBinding feature, each xml file generates a
@@ -54,7 +60,30 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
         dialog.setContentView(binding.root)
 
         binding.tvCamera.setOnClickListener(){
-            Toast.makeText(this, "Camera Clicked", Toast.LENGTH_SHORT).show()
+
+            //Action to request for permissions using the Dexter Libraries
+
+            Dexter.withContext(this).withPermissions(
+            //Dexter library can hold single or multiple permissions
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA
+            ).withListener(object : MultiplePermissionsListener{
+                override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                    if(report!!.areAllPermissionsGranted()){
+                        Toast.makeText(this@AddCar,"permission granted",Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    p0: MutableList<PermissionRequest>?,
+                    p1: PermissionToken?
+                ) {
+                  //  TODO show your alert Dialog
+
+                }
+
+            }).onSameThread().check()
             dialog.dismiss()
         }
 

@@ -50,6 +50,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     //recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    //intuit scalable dp
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    //karumi dexter
+    implementation 'com.karumi:dexter:6.2.3'
     //cardView
     implementation 'androidx.cardview:cardview:1.0.0'
 }
