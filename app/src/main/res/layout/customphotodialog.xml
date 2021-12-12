@@ -2,65 +2,55 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="10dp"
-    app:chainUseRtl="true">
+    android:id="@+id/customphotosdialog"
+    app:chainUseRtl="true"
+    >
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="130dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="40dp"
+        android:id="@+id/tvTititle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
         android:text="@string/select_source"
         android:textStyle="bold"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="93dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/tv_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="@string/camera"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        android:drawableTop="@drawable/ic_camera_takephoto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_gallery"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTititle"
+        />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="107dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/tv_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:textStyle="bold"
         android:gravity="center"
         android:text="@string/gallery"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="97dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/ic_camera_takephoto" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="112dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/ic_uploadphoto" />
+        android:drawableTop="@drawable/ic_uploadphoto"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@+id/tv_camera"
+       app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTititle"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
