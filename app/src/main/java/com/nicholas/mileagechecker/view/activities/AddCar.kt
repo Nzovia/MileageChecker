@@ -15,10 +15,16 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.provider.MediaStore
+import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.karumi.dexter.listener.single.PermissionListener
 
 class AddCar : AppCompatActivity() , View.OnClickListener{
 //    Not when you use viewBinding feature, each xml file generates a
@@ -96,9 +102,30 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
             dialog.dismiss()
         }
 
+        //onclick to access images from the internal memory of the device
         binding.tvGallery.setOnClickListener(){
-            Toast.makeText(this,"gallery clicked", Toast.LENGTH_SHORT).show()
-            dialog.dismiss()
+            Dexter.withContext(this@AddCar).withPermission(
+                //read device's storage
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+            ).withListener(object : PermissionListener{
+                override fun onPermissionGranted(p0: PermissionGrantedResponse?) {
+                    val  galleryIntent = Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    startActivityForResult(galleryIntent, GALLERY)
+                }
+
+                override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    p0: PermissionRequest?,
+                    p1: PermissionToken?
+                ) {
+                    TODO("Not yet implemented")
+                }
+
+            }
+            )
         }
         //for the dialog to appear
         dialog.show()
@@ -113,9 +140,23 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
               data?.extras?.let{
                   val thumbnail:Bitmap = data.extras!!.get("data") as Bitmap
                   mBinding.imageBackground.setImageBitmap(thumbnail)
+
+                  mBinding.addCarPhotos.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_edit))
               }
 
             }
+            if(requestCode == GALLERY){//means if the request code is the camera the assign it to the image view
+                data?.let{
+                    val selectedPhotoUri = data.data
+
+                    mBinding.imageBackground.setImageURI(selectedPhotoUri)
+
+                    mBinding.addCarPhotos.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_edit))
+                }
+
+            }
+        }else if (resultCode == RESULT_CANCELED){
+            Log.e("cancelled","the operation has been cancelled")
         }
     }
 //this is  an alert dialog that will be show in the instance
@@ -127,5 +168,6 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
     //creating the companion object
     companion object{
         private const val CAMERA = 1
+        private const val GALLERY = 2
     }
 }
