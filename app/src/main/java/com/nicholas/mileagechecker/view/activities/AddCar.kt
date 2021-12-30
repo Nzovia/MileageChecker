@@ -104,13 +104,17 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
 
         //onclick to access images from the internal memory of the device
         binding.tvGallery.setOnClickListener(){
-            Dexter.withContext(this@AddCar).withPermission(
-                //read device's storage
-                Manifest.permission.READ_EXTERNAL_STORAGE,
+            //Action to request for permissions using the Dexter Libraries
+
+            Dexter.withContext(this).withPermission(
+                //Dexter library can hold single or multiple permissions
+                Manifest.permission.READ_EXTERNAL_STORAGE
             ).withListener(object : PermissionListener{
                 override fun onPermissionGranted(p0: PermissionGrantedResponse?) {
-                    val  galleryIntent = Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    val galleryIntent = Intent(Intent.ACTION_PICK,
+                              MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                     startActivityForResult(galleryIntent, GALLERY)
+
                 }
 
                 override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
@@ -123,9 +127,8 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
                 ) {
                     TODO("Not yet implemented")
                 }
-
-            }
-            )
+            }).onSameThread().check()
+            dialog.dismiss()
         }
         //for the dialog to appear
         dialog.show()
@@ -147,6 +150,7 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
             }
             if(requestCode == GALLERY){//means if the request code is the camera the assign it to the image view
                 data?.let{
+                    //this variable helps has understand the uri of the image when we set data.data
                     val selectedPhotoUri = data.data
 
                     mBinding.imageBackground.setImageURI(selectedPhotoUri)
