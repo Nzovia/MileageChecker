@@ -12,12 +12,15 @@ import com.nicholas.mileagechecker.databinding.CustomphotodialogBinding
 import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Bitmap
 import android.provider.MediaStore
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -25,12 +28,15 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
+import java.io.*
+import java.util.*
 
 class AddCar : AppCompatActivity() , View.OnClickListener{
 //    Not when you use viewBinding feature, each xml file generates a
 //    binding class that allows access to all html elements eg. result_profile-
 //    generates a binding class ResultingProfileBinding
     private lateinit var mBinding: ActivityAddCarBinding
+    private var mImagePath: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -142,9 +148,18 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
             if(requestCode == CAMERA){//means if the request code is the camera the assign it to the image view
               data?.extras?.let{
                   val thumbnail:Bitmap = data.extras!!.get("data") as Bitmap
-                  mBinding.imageBackground.setImageBitmap(thumbnail)
 
-                  mBinding.addCarPhotos.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_edit))
+                //  mBinding.imageBackground.setImageBitmap(thumbnail)
+                  //using glide library
+                  Glide.with(this)
+                      .load(thumbnail)
+                      .centerCrop()
+                      .into( mBinding.imageBackground)
+                  mImagePath = saveImagesToInternalStorage(thumbnail)
+                  Log.i("ImagePath",mImagePath)
+
+                  mBinding.addCarPhotos.setImageDrawable(ContextCompat.
+                  getDrawable(this, R.drawable.ic_edit))
               }
 
             }
@@ -152,8 +167,11 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
                 data?.let{
                     //this variable helps has understand the uri of the image when we set data.data
                     val selectedPhotoUri = data.data
-
-                    mBinding.imageBackground.setImageURI(selectedPhotoUri)
+//                    mBinding.imageBackground.setImageURI(selectedPhotoUri)
+                    Glide.with(this)
+                        .load(selectedPhotoUri)
+                        .centerCrop()
+                        .into( mBinding.imageBackground)
 
                     mBinding.addCarPhotos.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_edit))
                 }
@@ -169,9 +187,35 @@ class AddCar : AppCompatActivity() , View.OnClickListener{
         AlertDialog.Builder(this).setMessage("Appears the permissions are Denied, " +
                 "it is required for this feature to work optimally ")
     }
+    //a function to facilitate saving of the images on the Cars Directory
+    private fun saveImagesToInternalStorage(bitmap: Bitmap):String{
+        //we need a context wrapper to understand where the image inside the application is assigned to
+        val wrapper = ContextWrapper(applicationContext)
+
+        var file = wrapper.getDir(IMAGE_DIRECTORY , Context.MODE_PRIVATE)
+        file = File(file,"${UUID.randomUUID()}.jpg")
+
+        //now create an image from that bitmap we have passed
+        try{
+            val stream: OutputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100,stream)
+            stream.flush()
+            stream.close()
+        }catch (e:IOException){
+            e.printStackTrace()
+
+        }
+        //returns the file directory and the absolute path
+        return file.absolutePath
+    }
+
+
     //creating the companion object
     companion object{
         private const val CAMERA = 1
         private const val GALLERY = 2
+
+        //creating  a directory where the images will be stored
+        private const val IMAGE_DIRECTORY = "carPhotos"
     }
 }
